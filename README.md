@@ -12,5 +12,5 @@ Idea for this script came from my collage.
 
 ## Configuration
 
-- change parameters on top to suit your needs
+- change config parameters to suit your needs
 - optionally add to crontab to be executed (e.g.:every minute)
