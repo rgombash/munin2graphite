@@ -2,7 +2,6 @@
 
 Simple python script that writes munin node data to graphite
 Idea for this script came from my collage.
-https://github.com/rgombash/munin2graphite.git
 Script cycles munin plugins symlinks, executes script using munin-run and writes result to graphite
 
 ## What you need:
