@@ -8,10 +8,9 @@ Script cycles munin plugins symlinks, executes script using munin-run and writes
 
 ## What you need:
 
--installed munin node with some plugins
+- installed munin node with some plugins
 
 ## Configuration
 
--change parameters on top to suit your needs
-
--optionally add to crontab to be executed (e.g.:every minute)
+- change parameters on top to suit your needs
+- optionally add to crontab to be executed (e.g.:every minute)
