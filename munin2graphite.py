@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
-from datetime import datetime, time
 from os import listdir
 from os.path import isfile, join
-import subprocess, glob, re
-
+import subprocess, re
 import socket
 import time
 
@@ -20,6 +18,7 @@ MUNIN_PLUGINS_PATH = "/etc/munin/plugins"	# path to munin plugins config dir wit
 CARBON_SERVER = '192.168.200.27'	# ip adress of your graphite server
 CARBON_PORT = 2003					# port
 CARBON_PREFIX = "munin."			# prefix
+CARBON_PROTOCOL = "udp"				# udp or tcp (tcp is fallback)
 
 ###
 
@@ -27,7 +26,11 @@ CARBON_PREFIX = "munin."			# prefix
 plugins = [ f for f in listdir(MUNIN_PLUGINS_PATH) if isfile(join(MUNIN_PLUGINS_PATH,f)) ]
 
 #open socket
-sock = socket.socket()
+if CARBON_PROTOCOL == "udp":
+	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+else:
+	sock = socket.socket()
+
 sock.connect((CARBON_SERVER, CARBON_PORT))
 
 #cycle through all munin plugins and send data
